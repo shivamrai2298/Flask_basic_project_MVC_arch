@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2 class="mb-3">Students List</h2>
+<a href="/students/add" class="btn btn-success mb-3">+ Add Student</a>
+
+<table class="table table-hover shadow-sm bg-white">
+    <thead class="table-primary">
+        <tr>
+            <th>ID</th><th>Name</th><th>Email</th><th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for s in students %}
+        <tr>
+            <td>{{ s.id }}</td>
+            <td>{{ s.name }}</td>
+            <td>{{ s.email }}</td>
+            <td>
+                <a href="/students/edit/{{ s.id }}" class="btn btn-sm btn-warning">Edit</a>
+                <a href="/students/delete/{{ s.id }}" class="btn btn-sm btn-danger">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}
